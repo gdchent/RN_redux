@@ -1,3 +1,9 @@
+/*
+ * @Author: 陈涛 
+ * @Date: 2018-04-15 13:08:00 
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-04-15 17:51:52
+ */
 'use strict';
 import React, { Component } from 'react';
 import {
@@ -12,26 +18,9 @@ import {
     ToastAndroid,
     Modal,
 } from 'react-native';
+import { width } from '../../utils/AdapterUtil'
 import { Wheel, Overlay, Label } from 'teaset';
 export default class PasswordLoginPage extends Component {
-
-
-    jsonData = [
-        { 'name': 'name1' },
-        { 'name': 'name2' },
-        { 'name': 'name3' },
-        { 'name': 'name4' },
-        { 'name': 'name5' },
-        { 'name': 'name3' },
-        { 'name': 'name4' },
-        { 'name': 'name5' },
-        { 'name': 'name3' },
-        { 'name': 'name4' },
-        { 'name': 'name5' },
-        { 'name': 'name3' },
-        { 'name': 'name4' },
-        { 'name': 'name5' },
-    ]
 
     /**
      * 构造函数
@@ -45,57 +34,76 @@ export default class PasswordLoginPage extends Component {
             transparent: false,
         }
     }
-    
+
     /**
      * 渲染视图
      */
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <TouchableOpacity
-                    onPress={
-                        () => {
-                            this.setState({ 
-                                modalVisible: visible, 
-                                transparent: true,
-                             });
+
+                <View>
+                    <TouchableOpacity
+                        onPress={
+                            () => {
+                                this.setState({
+                                    modalVisible: true,
+                                    transparent: true,
+                                });
+                            }
                         }
-                    }
-                >
-                    <Text>显示弹窗</Text>
-                </TouchableOpacity>
+                    >
+                        <Text>显示弹窗</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View>
+                    <Text>显示布局区域</Text>
+                </View>
+
                 <Modal
-                    style={{ width: 200, height: 200, backgroundColor: 'red' }}
+
                     animationType={this.state.animationType}
                     transparent={this.state.transparent}
                     visible={this.state.modalVisible}
-                    onRequestClose={() => { this._setModalVisible(false) }}
+                    onRequestClose={() => {
+                        this.setState({
+                            modalVisible: false,
+                        })
+                    }
+                    }
                 >
-                    {/* <Wheel
-                        style={{ height: 200, width: 100 }}
-                        itemStyle={{ textAlign: 'center' }}
-                        defaultIndex={this.jsonData.length - 1}
-                        items={this.jsonData.map((item, index) => {
-                            return (
-                                <Text style={{ color: 'red', backgroundColor: 'blue' }}>{item.name}</Text>
-                            )
-                        })}
+                    <View
+                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'darkgray' }}
+                    >
+                        <View style={{ justifyContent: 'center', alignItems: 'center', height: 150, backgroundColor: 'green', position: 'absolute', bottom: 0, width: width }}>
+                            <TouchableOpacity
 
-                    /> */}
+                                onPress={
+                                    () => {
+                                        this.setState({
+                                            modalVisible: false,
+                                        })
+                                    }
+                                }
+                            >
 
-                    <Text>哥是弹窗</Text>
+                                <Text>关闭弹窗</Text>
+                            </TouchableOpacity>
+
+                        </View>
+                    </View>
+
+
                 </Modal>
-
-
 
             </View>
         )
     }
 
-
-
-
-
+    /**
+     *左边打开弹窗
+     */
     _onPressOpen = () => {
 
         //console.log(overlayView);
@@ -130,7 +138,7 @@ export default class PasswordLoginPage extends Component {
     }
 
     /**
-     * 
+     * 左边弹窗
      */
     _onPressLeft = () => {
 

@@ -11,15 +11,24 @@
 
 import SplashPage from '../pages/splash/SplashPage'; //欢迎页
 import PasswordLoginPage from '../pages/login/PasswordLoginPage'; //欢迎页
+import TestDemo from '../pages/login/TestDemo';
+import WheelViewPage from '../pages/login/WheelViewPage';
 export default RouteConfig = {
     //账号密码登录
     SplashPage: {
         screen: SplashPage,
         name: 'SplashPage',
     },
-    PasswordLoginPage:{
-        screen:PasswordLoginPage,
-        name:'PasswordLoginPage',
+    PasswordLoginPage: {
+        screen: PasswordLoginPage,
+        name: 'PasswordLoginPage',
+    },
+    TestDemo: {
+        name: 'TestDemo',
+        screen: TestDemo,
+    },
+    WheelViewPage:{
+        name:'WheelViewPage',
+        screen:WheelViewPage,
     }
- 
 }
