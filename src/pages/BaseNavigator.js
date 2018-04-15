@@ -16,7 +16,7 @@ export default BaseNavigator = StackNavigator(
     RouteConfig, //配置路由
     {     // navigation 属性配置
         // initialRouteName: RouteConfig.SetPassword.name,
-        initialRouteName: RouteConfig.SplashPage.name,  //设置默认路由,不设置,会默认第一个
+        initialRouteName: RouteConfig.PasswordLoginPage.name,  //设置默认路由,不设置,会默认第一个
         headerMode: 'null',     //滑动返回时导航栏的效果,设为null 隐藏默认导航栏
         // navigationOptions: {
         //     header: null   //隐藏默认导航栏,默认导航栏样式单一,不具备个性化定制功能.需自行封装导航栏
